@@ -13,27 +13,27 @@
         <form novalidate>
             <div>
                 <label for="email">Email</label>
-                <input id="email" type="email" name="email" required>
+                <input id="email" type="email" name="email" class="input" required>
                 <span class="error"></span>
             </div>
             <div>
                 <label for="country">Country</label>
-                <input id="country" type="text" name="country" required>
+                <input id="country" type="text" name="country" class="input" required>
                 <span class="error"></span>
             </div>
             <div>
                 <label for="zip">Zipcode</label>
-                <input id="zip" type="text" name="zip" required>
+                <input id="zip" type="text" name="zip" class="input" pattern="[0-9]{5}" maxlength="5" minlength="5" required>
                 <span class="error"></span>
             </div>
             <div>
                 <label for="pword">Password</label>
-                <input id="pword" type="text" name="pword" required>
+                <input id="pword" type="text" name="pword" class="input" minlength="8" required>
                 <span class="error"></span>
             </div>
             <div>
                 <label for="confirm">Password Confirmation</label>
-                <input id="confirm" type="text" name="confirm" required>
+                <input id="confirm" type="text" name="confirm" class="input" minlength="8" required>
                 <span class="error"></span>
             </div>
             <div>

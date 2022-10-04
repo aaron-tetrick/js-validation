@@ -47,8 +47,7 @@ pword.addEventListener('input', e => {
 });
 
 pwordConfirm.addEventListener('input', e => {
-    console.log(pwordConfirm.value)
-    if (pwordConfirm.value === pword.value) {
+    if (pwordConfirm.value.toLowerCase() === pword.value.toLowerCase()) {
         confirmError.textContent = '';
         confirmError.className = 'error';
         pwordConfirm.setCustomValidity("");
@@ -56,7 +55,6 @@ pwordConfirm.addEventListener('input', e => {
         showError(pwordConfirm);
     }
 });
-
 
 function showError(type) {
     if (type.validity.valueMissing) {
@@ -70,11 +68,15 @@ function showError(type) {
         pwordError.textContent = `Password must be at least ${pword.minLength} characters long.`
         } 
         if (type === zip) {
-          zipError.textContent = `Zip Code must be ${zip.minLength} characters long`;
+          zipError.textContent = `ZIP Code must be ${zip.minLength} digits long`;
         }
     } else if (type === pwordConfirm) {
-        confirmError.textContent = 'Must match password';
-        type.setCustomValidity("Invalid field.");
+        confirmError.textContent = 'Passwords must match';
+        type.setCustomValidity('Invalid field.');
+    } else if (type.validity.patternMismatch) {
+        if (type.name === 'zip') {
+            zipError.textContent = 'ZIP Code must be a number';
+        }
     }
 };
 

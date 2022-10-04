@@ -11,29 +11,30 @@
 <body>
     <div class="container">
         <form novalidate>
+            <h1>JavaScript Validation</h1>
             <div>
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input id="email" type="email" name="email" class="input" required>
                 <span class="error"></span>
             </div>
             <div>
-                <label for="country">Country</label>
+                <label for="country">Country*</label>
                 <input id="country" type="text" name="country" class="input" required>
                 <span class="error"></span>
             </div>
             <div>
-                <label for="zip">Zipcode</label>
-                <input id="zip" type="text" name="zip" class="input" pattern="[0-9]{5}" maxlength="5" minlength="5" required>
+                <label for="zip">ZIP Code*</label>
+                <input id="zip" type="text" name="zip" class="input" pattern="[0-9]{5}" minlength="5" maxlength="5" required>
                 <span class="error"></span>
             </div>
             <div>
-                <label for="pword">Password</label>
-                <input id="pword" type="text" name="pword" class="input" minlength="8" required>
+                <label for="pword">Password*</label>
+                <input id="pword" type="password" name="pword" class="input" minlength="8" required>
                 <span class="error"></span>
             </div>
             <div>
-                <label for="confirm">Password Confirmation</label>
-                <input id="confirm" type="text" name="confirm" class="input" required>
+                <label for="confirm">Password Confirmation*</label>
+                <input id="confirm" type="password" name="confirm" class="input" required>
                 <span class="error"></span>
             </div>
             <div>
@@ -41,6 +42,5 @@
             </div>
         </form>
     </div>
-    
 </body>
 </html>

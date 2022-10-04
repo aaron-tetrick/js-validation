@@ -2,7 +2,7 @@ const email = document.getElementById('email');
 const country = document.getElementById('country');
 const zip = document.getElementById('zip');
 const pword = document.getElementById('pword');
-const confirm = document.getElementById('confirm');
+const pwordConfirm = document.getElementById('confirm');
 const emailError = document.querySelector("#email + span.error");
 const countryError = document.querySelector('#country + span.error');
 const zipError = document.querySelector('#zip + span.error');
@@ -46,12 +46,14 @@ pword.addEventListener('input', e => {
     }
 });
 
-confirm.addEventListener('input', e => {
-    if (confirm.validity.valid) {
+pwordConfirm.addEventListener('input', e => {
+    console.log(pwordConfirm.value)
+    if (pwordConfirm.value === pword.value) {
         confirmError.textContent = '';
         confirmError.className = 'error';
+        pwordConfirm.setCustomValidity("");
     } else {
-        showError(confirm);
+        showError(pwordConfirm);
     }
 });
 
@@ -70,6 +72,9 @@ function showError(type) {
         if (type === zip) {
           zipError.textContent = `Zip Code must be ${zip.minLength} characters long`;
         }
+    } else if (type === pwordConfirm) {
+        confirmError.textContent = 'Must match password';
+        type.setCustomValidity("Invalid field.");
     }
 };
 
